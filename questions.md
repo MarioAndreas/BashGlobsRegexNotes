@@ -35,3 +35,4 @@ ls: cannot access '$(uname -a)': No such file or directory
 ```
 
 ## Q: What is Parameter expansion?
+Parameters passed into a script:  $0 $1 $@
