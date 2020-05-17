@@ -65,13 +65,23 @@ Use 'single quotes' to keep the shell from interpreting a regex as a glob
 - [asd-]
 - [[as] or []asdf]    #a left or right bracket must be first in the list to loose its meaning
 
+### Inconsistent Sorting
+- Set LC_COLLATE=C  or C.UTF-8
+- Set `globaasciiranges` shell option (Bash 4.3 or greater)
+- bash -O globasciiranges
+- Use character classes
+
 ### Character classes
+Consistent and reliable  
+
 - [:lower:]
 - [:upper:]
 - [:digit:]
 - [:alpha:]
 - [:alnum:]
 - [:space:]
+- [:graph:]     Printable chars not including spaces
+- [:print:]     Printable chars including spaces
 - [:punct:]
 - [:cntrl:]
 - [:xdigit:]    Hexadecimal characters
@@ -96,7 +106,7 @@ Example: globstart does a recursive search
 
     shopt -s globstar
 
-    for i in **/* ; do
+    for i in **/*.txt ; do
       echo $i
     done
 

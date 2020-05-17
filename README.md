@@ -36,3 +36,10 @@ Update notes
 <br><br>
 
 ---
+## Day 3: May 17, 2020 - 1hr
+**Today's Progress:**  
+Char sets, Char classes, Glob Options
+Update notes
+<br><br>
+
+---
