@@ -40,6 +40,7 @@ Update notes
 **Today's Progress:**  
 Char sets, Char classes
 Glob Options
+Start Extened Globs
 Update notes
 <br><br>
 

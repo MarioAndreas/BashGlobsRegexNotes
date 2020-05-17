@@ -114,14 +114,39 @@ Example: globstart does a recursive search
 -----------------------------------
 ## Extended Globs 
 -----------------------------------
-Extended Globs execute faster than grep regex's
 
+- Match multiple occurrences
+- Allow grouping patterns
+- Nesting pattern groups
+- Logical AND and OR
+
+### Why Use Extended Globs
+- Extended Globs execute faster than grep regex's
+- Makes interactive globbing more useful
+- Add power to `if` conditional statements
+- Add power to `case` statements
+- Add power to pattern substitution
+
+### Examples
 - @(pattern)  # match exactly one occurance
 - @(pat1|pat2)  # match exactly one of pat1 or pat2
 - ?(pattern)  # 0 or 1 occurance
 - +(pattern)  # 1 or more occurances    *#
-- *(pattern)  # 1 or more occurances
+- *(pattern)  # 0 or more occurances
 - !(pattern)  # invert the match
 
     !(+(photo|file)*+(.jpg|gif))
 
+- ${var%.*}   # % stops at first match from the end
+- ${var%%.*}   # % stops at furthest match from the end
+- ${var%%@(.tar|.bak)*}   # % stops at furthest match from the end
+
+    # file=Archive-2017-06-12.tar.gz
+    # echo ${file}
+    Archive-2017-06-12.tar.gz
+    # echo ${file%.*}
+    Archive-2017-06-12.tar
+    # echo ${file%%.*}
+    Archive-2017-06-12
+    # echo ${file%%@(tar|bak)}
+    Archive-2017-06-12
