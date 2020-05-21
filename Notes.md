@@ -12,15 +12,18 @@ Built into the shell
 Globbing support depends on shell type/version  
 
 ## Globs vs. Regex
+
 - Globs match file names
 - Regex match text
-- Globs easier for system to process  
+- Globs easier for system to process
 
-    `ls [0-9]?file*.txt`
 
-[0-9]     one digit in 0 thru 9
-?         a single character
-*         0 or more characters
+Example:  
+`ls [0-9]?file*.txt`
+
+`[0-9]` - one digit in 0 thru 9  
+`?` -     a single character  
+`*` -     0 or more characters  
 
 The expansion is done by the shell. Then the list is given to the `ls` command  
 
@@ -140,7 +143,7 @@ Example: globstart does a recursive search
 - ${var%.*}   # % stops at first match from the end
 - ${var%%.*}   # % stops at furthest match from the end
 - ${var%%@(.tar|.bak)*}   # % stops at furthest match from the end
-
+```
     # file=Archive-2017-06-12.tar.gz
     # echo ${file}
     Archive-2017-06-12.tar.gz
@@ -150,3 +153,31 @@ Example: globstart does a recursive search
     Archive-2017-06-12
     # echo ${file%%@(tar|bak)}
     Archive-2017-06-12
+```
+
+-----------------------------------
+## Brace Expansion
+-----------------------------------
+- Globs expand pathnames
+- Brace expansion expands braces
+- Brace expansion is processed first
+- Globs are processed last
+- Brace expansion doesn't depend on existence of files
+- Brace expansion operates on strings
+
+Examples:
+```
+{1,3,5}
+{1..5}
+{1..4}{a..d}
+{1..100..2}     // Step
+{100..1..2}     // Step backwards
+{002..100..2}   // pad w zeros
+```
+Use `{,.bak}` with `cp` or `mv`
+```
+cp /path/to/file.conf{,.bak}
+```
+```
+for i in Backup*{0..30..7}.tar.bz2; do cp -v $i{,.bak}; done
+```

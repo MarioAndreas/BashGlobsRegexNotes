@@ -36,12 +36,18 @@ Update notes
 <br><br>
 
 ---
-## Day 3: May 17, 2020 - 1hr
+## Day 3: May 17, 2020 - 2hr
 **Today's Progress:**  
 Char sets, Char classes
 Glob Options
 Start Extened Globs
 Update notes
+<br><br>
+
+---
+## Day 4: May 20, 2020 - 1hr
+**Today's Progress:**  
+Brace Expansion
 <br><br>
 
 ---
