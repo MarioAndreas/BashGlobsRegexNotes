@@ -51,3 +51,9 @@ Brace Expansion
 <br><br>
 
 ---
+## Day 5: May 22, 2020 - 1hr
+**Today's Progress:**  
+Start Regualar Expressions
+<br><br>
+
+---
