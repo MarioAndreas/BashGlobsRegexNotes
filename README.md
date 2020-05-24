@@ -57,3 +57,11 @@ Start Regualar Expressions
 <br><br>
 
 ---
+## Day 6: May 23, 2020 - .5hr
+**Today's Progress:**  
+Occurrences
+Alternation and Grouping
+Back References
+<br><br>
+
+---

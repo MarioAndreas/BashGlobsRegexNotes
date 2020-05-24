@@ -3,7 +3,7 @@
 - Globs
 - Extended globs
 - Brace expansion
-- Basick Regex
+- Basic Regex
 - Extended Regex
 
 ## Globs
@@ -105,7 +105,7 @@ Examples
 - nocasematch       # case insensitive
 - extglobs          # extended globs
 
-Example: globstart does a recursive search
+Example: globstar does a recursive search
 
     shopt -s globstar
 
@@ -137,12 +137,14 @@ Example: globstart does a recursive search
 - +(pattern)  # 1 or more occurances    *#
 - *(pattern)  # 0 or more occurances
 - !(pattern)  # invert the match
-
-    !(+(photo|file)*+(.jpg|gif))
+```
+        !(+(photo|file)*+(.jpg|gif))
+```
 
 - ${var%.*}   # % stops at first match from the end
 - ${var%%.*}   # % stops at furthest match from the end
 - ${var%%@(.tar|.bak)*}   # % stops at furthest match from the end
+
 ```
     # file=Archive-2017-06-12.tar.gz
     # echo ${file}
@@ -221,14 +223,49 @@ bash [[ =~ ]]:  ERE
 ## Special Expressions w Backslashes
 ```
 \b      empty string at word boundry
-\B      empty string nat at word boundry
+\B      empty string not at word boundry
 \<      empty  string at beginning of word
 \>      empty  string at end of word
 
 \w same as [_[:alnum:]]     Matches whole word
 \W same as [^_[:alnum:]]    Match non-word
 \s same as [[:space:]]      Match a whitespace
-\S same as [^[:space:]]      Match a non-whitespace
+\S same as [^[:space:]]     Match a non-whitespace
 
 ```
+
+## Matching Occurrences
+|Pattern | Match |
+|--------|-------|
+| .      | one char |
+| .?     | zero or one char |
+| .+     | one or more occurrence |
+| .*     | zero or more occurrence |
+| .{3}   | three occurrences |
+| .{3,}  | three or more occurrences |
+| .{,3}  | zero to three occurrences |
+| .{1,3} | one to three occurrences |
+
+## Alternation and Grouping
+- Alternation allows matching one or another
+- Grouping treats more than one pattern as one match
+
+Examples:
+```
+dog|cat             dog or cat
+^(dog|cat)?$        zero or one 'dog' or 'cat'
+^(dog|cat)+$        one or more 'dog' or 'cat'
+[0-9]|[1-9][0-9]    0 thru 99
+[0-9][0-9]?         0 thru 99. zero or one of the second char set
+^([0-9][0-9]?|1[0-4][0-9]|150)$     0 - 150 
+```
+
+## Back references
+Only supported in BREs NOT EREs!
+Max 9 back references
+```
+(ss).*\1            \1 references the first group - (ss)
+^(.)(.).\2\1$       Match 5 letter palendone
+```
+
 
