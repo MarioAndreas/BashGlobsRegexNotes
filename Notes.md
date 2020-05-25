@@ -268,4 +268,12 @@ Max 9 back references
 ^(.)(.).\2\1$       Match 5 letter palendone
 ```
 
+## Pattern Matching in Bash
+EREs in `if [[ =~ ]]`  
+Can use RegEx or Extened Globs
 
+### BASH_REMATCH
+Array of last matches  
+```
+    echo ${BASH_REMATCH[0]}
+```

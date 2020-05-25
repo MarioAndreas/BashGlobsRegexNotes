@@ -65,3 +65,10 @@ Back References
 <br><br>
 
 ---
+## Day 7: May 24, 2020 - 1hr
+**Today's Progress:**  
+Finish chap 5 RegEx
+BASH_REMATCH
+<br><br>
+
+---
